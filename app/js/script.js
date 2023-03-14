@@ -19,16 +19,7 @@ for (let todo of todos) {
 }
 
 /////////////////////////function area //////////////////////////
-
-function addItem(text) {
-  let newItem = document.createElement("li");
-  newItem.innerHTML = `
-    <label for="todo">${text}</label>
-    <i class="delete fa fa-trash"></i>
-  `;
-  todoList.appendChild(newItem);
-}
-
+//判斷是否為空白（是則跳出提醒），並執行addItem()
 function addToList() {
   let inputValue = input.value;
   //如果使用者有輸入內容，才把內容人加到list
@@ -38,6 +29,18 @@ function addToList() {
     addItem(inputValue);
   }
 }
+
+//將inputValue放到todoList
+function addItem(text) {
+  let newItem = document.createElement("li");
+  newItem.innerHTML = `
+    <label for="todo">${text}</label>
+    <i class="delete fa fa-trash"></i>
+  `;
+  todoList.appendChild(newItem);
+}
+
+
 
 
 /////////////////////////Event Listener//////////////////////////
