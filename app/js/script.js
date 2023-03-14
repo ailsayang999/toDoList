@@ -17,7 +17,8 @@ for (let todo of todos) {
   addItem(todo);
 }
 
-// 函式
+/////////////////////////function area //////////////////////////
+
 function addItem(text) {
   let newItem = document.createElement("li");
   newItem.innerHTML = `
@@ -37,6 +38,8 @@ function addToList() {
   }
 }
 
+
+/////////////////////////Event Listener//////////////////////////
 
 // 1. add new todo
 addBtn.addEventListener("click", function () {
