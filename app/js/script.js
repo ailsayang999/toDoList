@@ -41,7 +41,21 @@ function addItem(text) {
   todoList.appendChild(newItem);
 }
 
-
+//把做完的事畫線並移到doneList 
+function addToDoneList(target) {
+  if (target.tagName === "LABEL") {
+    //要先把做完的事畫線
+    target.classList.toggle("checked");
+    //再把做完的事移到doneList
+    let parentElement = target.parentElement;
+    doneList.appendChild(parentElement);
+    //  上面兩行也可以改成以下四行
+    // let parentElement = target.parentElement;
+    // let doneItems = parentElement.outerHTML;
+    // doneList.innerHTML += doneItems;
+    // parentElement.remove();
+  }
+}
 
 
 /////////////////////////Event Listener//////////////////////////
@@ -58,17 +72,24 @@ input.addEventListener("keyup", function (event) {
   }
 });
 
-// 2.刪除 todo
+// Delete todo item on todoList 
 todoList.addEventListener("click", function (event) {
   let target = event.target;
-  if (target.classList.contains("delete")) {
+  if (target.matches(".delete")) {
     //刪除垃圾桶上層的元素
     let parentElement = target.parentElement;
     parentElement.remove();
   }
-  //3. 切換做完與否
-  if (target.tagName === "LABEL") {
-    target.classList.toggle("checked");
+  addToDoneList(target);
+});
+
+// Delete done items on doneList
+doneList.addEventListener("click", function (event) {
+  let target = event.target;
+  if (target.matches(".delete")) {
+    //刪除垃圾桶上層的元素
+    let parentElement = target.parentElement;
+    parentElement.remove();
   }
 });
 
