@@ -1,5 +1,6 @@
 // 初始變數
 let todoList = document.querySelector("#my-todo");
+let doneList = document.querySelector("#my-done");
 let addBtn = document.querySelector("#add-btn");
 let input = document.querySelector("#new-todo");
 
