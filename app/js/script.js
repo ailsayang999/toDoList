@@ -27,14 +27,20 @@ function addItem(text) {
   list.appendChild(newItem);
 }
 
+function addToList() {
+  let inputValue = input.value;
+  //如果使用者有輸入內容，才把內容人加到list
+  if (inputValue.trim() === "" || inputValue === "") {
+    alert("您輸入的是空白內容，請輸入內容");
+  } else if (inputValue.length > 0 && inputValue.trim() !== "") {
+    addItem(inputValue);
+  }
+}
+
 
 // 1. add new todo
 addBtn.addEventListener("click", function () {
-  let inputValue = input.value;
-  //如果使用者有輸入內容，才把內容人加到list
-  if (inputValue.length > 0) {
-    addItem(inputValue);
-  }
+  addToList()
 });
 
 // 2.刪除 todo
