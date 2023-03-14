@@ -1,5 +1,5 @@
 // 初始變數
-let list = document.querySelector("#my-todo");
+let todoList = document.querySelector("#my-todo");
 let addBtn = document.querySelector("#add-btn");
 let input = document.querySelector("#new-todo");
 
@@ -25,7 +25,7 @@ function addItem(text) {
     <label for="todo">${text}</label>
     <i class="delete fa fa-trash"></i>
   `;
-  list.appendChild(newItem);
+  todoList.appendChild(newItem);
 }
 
 function addToList() {
@@ -41,11 +41,12 @@ function addToList() {
 
 /////////////////////////Event Listener//////////////////////////
 
-// 1. add new todo
+// Add new todo items to todoList （執行addToList())
 addBtn.addEventListener("click", function () {
   addToList()
 });
 
+//Add keyup event listener to input (按Enter也可以執行addToList())
 input.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
     addToList();
@@ -53,7 +54,7 @@ input.addEventListener("keyup", function (event) {
 });
 
 // 2.刪除 todo
-list.addEventListener("click", function (event) {
+todoList.addEventListener("click", function (event) {
   let target = event.target;
   if (target.classList.contains("delete")) {
     //刪除垃圾桶上層的元素
