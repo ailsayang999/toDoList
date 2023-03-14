@@ -43,6 +43,12 @@ addBtn.addEventListener("click", function () {
   addToList()
 });
 
+input.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    addToList();
+  }
+});
+
 // 2.刪除 todo
 list.addEventListener("click", function (event) {
   let target = event.target;
