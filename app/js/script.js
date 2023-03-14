@@ -19,6 +19,7 @@ for (let todo of todos) {
 }
 
 /////////////////////////function area //////////////////////////
+
 //判斷是否為空白（是則跳出提醒），並執行addItem()
 function addToList() {
   let inputValue = input.value;
